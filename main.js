@@ -48,6 +48,13 @@ for (x = 0; x < bob; x++ )
     console.log(numberOfItems);
 
 
+    // refactored...
+
+    const = totalPricesB = prices.reduce(function(acc, i) {
+             return acc + i;
+    })
+
+
 
     //
     // 2. Show me how to get an array of items that cost between $14.00 and $18.00 USD. Please `console.log` the answer.
@@ -109,19 +116,77 @@ for (x = 0; x < bob; x++ )
         // 4. Show me how to find which items are made of wood. Please `console.log` the ones you find.
         // ```
 
-        var c;
+
+        console.log('items that have wood as a material.');
+        console.log('items that have wood as a material.');
+        console.log('');
+
         var gloopa;
         var ga;
-        var lookforgp;
-        var gp;
         var str;
-
+        var materialsAll;
 
         for (ga = 0; ga < gloopa; ga++ )
           {
-             str = (items[ga]["materials"]);
-                 if (n == str.includes("wood"));{
-                console.log(items[ga]["materials"]);
-                // console.log(n);
+                 str = (items[ga]["materials"]);
+                 var materialsAll = str.join();
+                  if (materialsAll.includes("wood"))
+                    {
+                      console.log(items[ga]["title"]);
+                      console.log(str);}
+               }
+
+
+     // 5. Show me how to find which items are made of eight or more materials. Please `console.log` the ones you find.
+     // ```
+
+           console.log('');
+           console.log('items that have 8 or more parts in materials list.');
+           console.log('items that have 8 or more parts in materials list.');
+           console.log('');
+
+
+             var gloopa;
+             var ga;
+             var str;
+             var materialsAll;
+             var numItems;
+
+             for (ga = 0; ga < gloopa; ga++ )
+               {
+                      str = (items[ga]["materials"]);
+                      numItems = str.length;
+                     if (numItems >= 8)
+                     { console.log(items[ga]["title"]);
+                       console.log(items[ga]["materials"]);
+                      }
+                }
+
+
+        // 6. Show me how to calculate how many items were made by their sellers. Please `console.log` your answer.
+        // ```
+        // 18 were made by their sellers
+        // ```
+
+
+        console.log('');
+        console.log('Who made the items');
+        console.log('Who made the items');
+        console.log('');
+
+
+          var gloopa;
+          var ga;
+          var str;
+          var materialsAll;
+          var numItems;
+
+          for (ga = 0; ga < gloopa; ga++ )
+            {
+                    str = (items[ga]["who_made"]);
+                  //  numItems = str.length;
+                     if (str == 'i_did')
+                   { console.log(items[ga]["title"]);
+                    console.log(items[ga]["who_made"]);
+                   }
              }
-          }
