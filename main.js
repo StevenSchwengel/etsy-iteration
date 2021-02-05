@@ -1,9 +1,11 @@
 //trial section...
 
-for (x = 0; x < bob; x++) {
-  console.log(x);
-  console.log(items[x]["price"]);
-}
+//`array.map()`, `array.forEach()`, `array.filter()` and `array.reduce()`
+
+// for (x = 0; x < bob; x++) {
+//   console.log(x);
+//   console.log(items[x]["price"]);
+// }
 
 
 //trial ends
@@ -51,6 +53,34 @@ console.log(numberOfItems);
 //   return acc + i;
 // })
 
+var lengthItems = items.length;
+var priceList =[];
+var tTotalPrice;
+
+for (x = 0; x < lengthItems; x++) {
+  rPrice = (items[x]["price"]);
+  rPrices = parseInt(rPrice);
+  priceList[x] = rPrices;
+}
+
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
+console.log("average price of items", priceList.reduce(reducer) / lengthItems);
+//tTotalPrice = priceList.reduce(reducer);
+
+
+// items.reduce(function(items:"price", i){
+//   return acc + i;
+//   console.log(acc);
+// })
+//
+// console.log("lookat",acc);
+
+
+
+
+
+
+
 
 
 //
@@ -61,23 +91,23 @@ console.log(numberOfItems);
 var c;
 var loopa;
 var xa;
-
+var priceListB =[];
+var cPrice;
 
 var loopa = items.length;
 
 console.log("prices between 14 dollars and 18 dollars");
 
 for (xa = 0; xa < loopa; xa++) {
-  //        console.log(x);
-  //         console.log(items[x]["price"]);
-  cPrice = (items[xa]["price"]);
+  priceListB[xa] = (items[xa]["price"]);
   //       console.log(cPrice);
-
-  if (cPrice >= 14 && cPrice <= 18) {
-    console.log(cPrice);
-    console.log(items[xa]["title"]);
-  }
 }
+
+      const resulta = priceListB.filter(price => price > 14 && price <= 18);
+      console.log(resulta);
+
+
+
 
 //
 // 3. Show me how find the item with a "GBP" currency code and print its name and price. Please `console.log` the one you find.
@@ -95,16 +125,29 @@ var gloopa = items.length;
 
 console.log("item with a GBP currency code");
 
-for (ga = 0; ga < gloopa; ga++) {
+// for (ga = 0; ga < gloopa; ga++) {
+//
+//   gp = (items[ga]["currency_code"]);
+//   if (gp == "GBP") {
+//     console.log(items[ga]["description"]);
+//     console.log(items[ga]["price"]);
+//   }
+//
+// }
 
-  gp = (items[ga]["currency_code"]);
-  if (gp == "GBP") {
-    console.log(items[ga]["description"]);
-    console.log(items[ga]["price"]);
-  }
+// const GBP = items.filter(function(items)) =>
+//   return items:currency_code === 'GBP';
+// }
+//  console.log (GBP);
 
-  //       console.log(gp);
-}
+let = gbp = items.filter(function (items){
+   return (items.currency_code === "GBP")
+  //  console.log(items)
+  });
+
+   console.log (gbp);
+
+   // items.currency_code === "GBP")
 
 //
 // 4. Show me how to find which items are made of wood. Please `console.log` the ones you find.
@@ -130,6 +173,20 @@ for (ga = 0; ga < gloopa; ga++) {
 }
 
 
+const woodI = items.filter(function (items) {
+    return items.materials; //.includes === 'wood';
+
+//   return (item.materials.include == 'wood');
+    console.log(items.materials.includes);
+    console.log(woodI);
+  });
+//
+//
+//    console.log (woodI);
+
+
+
+
 // 5. Show me how to find which items are made of eight or more materials. Please `console.log` the ones you find.
 // ```
 
@@ -149,10 +206,16 @@ for (ga = 0; ga < gloopa; ga++) {
   str = (items[ga]["materials"]);
   numItems = str.length;
   if (numItems >= 8) {
-    console.log(items[ga]["title"]);
-    console.log(items[ga]["materials"]);
+//    console.log(items[ga]["title"]);
+//    console.log(items[ga]["materials"]);
   }
 }
+
+
+const eigthOrMore = items.filter(function(items){
+  return (items.materials.length >= 8)
+  console.log(eightOrMore);})
+
 
 
 // 6. Show me how to calculate how many items were made by their sellers. Please `console.log` your answer.
